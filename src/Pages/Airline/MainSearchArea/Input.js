@@ -100,7 +100,6 @@ class Input extends Component {
       },
     });
   };
-
   render() {
     const { trevelType } = this.props;
     const {
@@ -269,20 +268,6 @@ const DayInput = styled.div`
     width: 40px;
     color: #51abf3;
   }
-
-  /* div {
-    width: 106px;
-    height: 45px;
-    padding: 12px 0 0 7px;
-    border: none;
-    box-shadow: none;
-    color: #c3c3c3;
-
-    &:focus {
-      border: none;
-      outline: none;
-    }
-  } */
 `;
 
 const Quantity = styled.div`

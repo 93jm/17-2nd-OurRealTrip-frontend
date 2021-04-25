@@ -6,7 +6,7 @@ class SendFilter extends Component {
   state = { data: [] };
 
   render() {
-    const { AirLineData, filteredData } = this.props;
+    const { AirLineData, filteredData, handleShowSelectedTicket } = this.props;
     return (
       <div>
         {filteredData?.map((data, idx) => {
@@ -26,7 +26,7 @@ class SendFilter extends Component {
               price={data.price}
               id={data.id}
               name={data.id}
-              handleShowSelectedTicket={this.props.handleShowSelectedTicket}
+              handleShowSelectedTicket={handleShowSelectedTicket}
             />
           );
         })}

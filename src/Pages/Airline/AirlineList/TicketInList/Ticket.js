@@ -17,7 +17,6 @@ class Ticket extends Component {
       seatType,
       leftSeat,
       price,
-      name,
       handleShowSelectedTicket,
     } = this.props;
 

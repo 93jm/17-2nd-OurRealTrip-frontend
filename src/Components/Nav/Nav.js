@@ -57,13 +57,7 @@ const Nav = () => {
               파트너 등록하기
             </a>
             {!localStorage.getItem('access_token') ? (
-              <Link
-                type={type}
-                to="/signin"
-                // onClick={() => {
-                //   window.location.href = '/signin';
-                // }}
-              >
+              <Link type={type} to="/signin">
                 로그인
               </Link>
             ) : (
@@ -109,7 +103,6 @@ export default Nav;
 const NavBar = styled.section`
   display: flex;
   flex-direction: column;
-  /* border-bottom: 1px solid rgba(255, 255, 255, 0.5); */
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   ${props => props.type === 'after' && 'background-color: white'}
   z-index: 3;

@@ -46,9 +46,6 @@ export default StayDetailSideBar;
 
 const StayDetailRight = styled.div`
   width: 300px;
-  /* height: 300px; */
-  /* background-color: blue; */
-  /* border: 1px solid rgba(0, 0, 0, 0.2); */
   margin-left: 20px;
 `;
 
@@ -61,8 +58,6 @@ const InfoTop = styled.div`
 
 const InfoProfile = styled.div`
   width: 100%;
-  /* height: 200px; */
-  /* background-color: purple; */
   display: flex;
   flex-direction: column;
 

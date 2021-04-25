@@ -5,8 +5,9 @@ import FilterCategoryInSideBar from './Components/FilterCategoryInSideBar';
 import TicketInList from './TicketInList/TicketInList';
 import ReservationBox from './ReservationBox/ReservationBox';
 import SendFilter from './AirlineSelectedBox/SendFilter';
-import styled, { isStyledComponent, keyframes } from 'styled-components';
-// import AirlineTime from './AirlineSelectedBox/AirlineTime';
+import styled from 'styled-components';
+
+import { AIRLINELIST_API } from '../../../config';
 
 class AirlineList extends Component {
   state = {
@@ -48,52 +49,15 @@ class AirlineList extends Component {
 
   handleChangeTimeFilter = e => {
     const { checked, name, id } = e.target;
-    // const {
-    //   새벽,
-    //   오전,
-    //   오후,
-    //   야간,
-    // default2,
-    // default3,
-    // default4,
-    // default1,
-    // } = this.state;
-    // console.log(e.target.name);
     checked === true
       ? this.setState({ [name]: `timeOption=${Number(id) + 1}&` })
       : this.setState({ [name]: '' });
-    // fetch(
-    //   `http://18.217.180.2:8000/flight?departure=GMP&arrival=CJU&date=${localStorage.getItem(
-    //     'startDate'
-    //   )}&sort=price:asc&${새벽}${오전}${오후}${야간}passenger=${
-    //     this.state.ChosenQuantityDataInLastPage
-    //   }`,
-    //   {
-    //     method: 'GET',
-    //   }
-    // )
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data);
-    //     this.setState({
-    //       AirLineData: data,
-    //     });
-    //   });
   };
 
   componentDidMount() {
-    const {
-      새벽,
-      오전,
-      오후,
-      야간,
-      default2,
-      default3,
-      default4,
-      default1,
-    } = this.state;
+    const { default2, default3, default4, default1 } = this.state;
     fetch(
-      `http://18.217.180.2:8000/flight?departure=GMP&arrival=CJU&date=${localStorage.getItem(
+      `${AIRLINELIST_API}?departure=GMP&arrival=CJU&date=${localStorage.getItem(
         'startDate'
       )}&sort=price:asc&${default1}${default2}${default3}${default4}&passenger=${
         this.state.ChosenQuantityDataInLastPage
@@ -105,7 +69,6 @@ class AirlineList extends Component {
       .then(res => res.json())
       .then(data => {
         localStorage.setItem('AirLineData', JSON.stringify(data));
-        console.log('컴디마');
         this.setState({
           AirLineData: data,
         });
@@ -121,7 +84,7 @@ class AirlineList extends Component {
       야간 !== prevState.야간
     )
       fetch(
-        `http://18.217.180.2:8000/flight?departure=GMP&arrival=CJU&date=${localStorage.getItem(
+        `${AIRLINELIST_API}?departure=GMP&arrival=CJU&date=${localStorage.getItem(
           'startDate'
         )}&sort=price:asc&${새벽}${오전}${오후}${야간}passenger=${
           this.state.ChosenQuantityDataInLastPage
@@ -132,34 +95,14 @@ class AirlineList extends Component {
       )
         .then(res => res.json())
         .then(data => {
-          console.log('컴디업2', 새벽);
           this.setState({
             AirLineData: data,
           });
         });
 
-    // if (this.state.filteredData !== prevState.filteredData) {
-    //   fetch(
-    //     `http://18.217.180.2:8000/flight?departure=CJU&arrival=GMP&date=${localStorage.getItem(
-    //       'endDate'
-    //     )}&sort=${
-    //       this.state.rightFilter
-    //     }&timeOption=1&timeOption=2&timeOption=3&timeOption=4`,
-    //     {
-    //       method: 'GET',
-    //     }
-    //   )
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       this.setState({
-    //         AirLineData: data,
-    //       });
-    //     });
-    // }
-
     if (this.state.rightFilter !== prevState.rightFilter) {
       fetch(
-        `http://18.217.180.2:8000/flight?departure=GMP&arrival=CJU&date=${localStorage.getItem(
+        `${AIRLINELIST_API}?departure=GMP&arrival=CJU&date=${localStorage.getItem(
           'startDate'
         )}&sort=${
           this.state.rightFilter
@@ -186,9 +129,6 @@ class AirlineList extends Component {
       filteredData,
       ChosenQuantityDataInLastPage,
     } = this.state;
-    console.log(JSON.parse(localStorage.getItem('AirLineData')));
-    console.log('렌더', this.state);
-    console.log(typeof this.state.새벽);
     return (
       <AirLine>
         <LodingPage />

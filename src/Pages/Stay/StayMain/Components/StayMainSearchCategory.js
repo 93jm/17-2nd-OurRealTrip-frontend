@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { STAYMAIN_DATA } from '../../../../config';
 
 const StayMainSearchCategory = () => {
   const [cateArr, setCateArr] = useState([]);
 
   useEffect(() => {
-    fetch('/data/StayMainData.json')
+    fetch(STAYMAIN_DATA)
       .then(res => res.json())
       .then(data => {
         setCateArr(data.SearchCategory);

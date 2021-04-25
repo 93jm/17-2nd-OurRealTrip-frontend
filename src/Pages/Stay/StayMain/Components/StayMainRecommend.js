@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import theme from '../../../../Styles/theme';
+import { STAYMAIN_DATA } from '../../../../config';
 
 const StayMainRecommend = () => {
   const [recommendArr, setRecommendArr] = useState([]);
 
   useEffect(() => {
-    fetch('/data/StayMainData.json')
+    fetch(STAYMAIN_DATA)
       .then(res => res.json())
       .then(data => {
         setRecommendArr(data.Recommend);

@@ -6,11 +6,13 @@ import StayDetailSlider from './Component/StayDetailSlider';
 import StayDetailSideBar from './Component/StayDetailSideBar';
 import StayDetailRoomCard from './Component/StayDetailRoomCard';
 
+import { ACCOMMODATION_API } from '../../../config';
+
 const StayDetail = ({ match }) => {
   const [stayData, setStayData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://18.217.180.2:8000/accommodation/${match.params.id}`)
+    fetch(`${ACCOMMODATION_API}/${match.params.id}`)
       .then(res => res.json())
       .then(res => {
         console.log('데이터 왔나? >>>>', res.data);
@@ -88,7 +90,6 @@ export default withRouter(StayDetail);
 const StayDetailContainer = styled.div`
   width: 100%;
   height: 100%;
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
 `;
@@ -106,15 +107,11 @@ const StayDetailContent = styled.div`
 const StayDetailLeft = styled.div`
   position: relative;
   width: 760px;
-  /* height: 1000vh; */
-  /* background-color: tomato; */
 `;
 
 const LeftDetailTitle = styled.div`
   display: flex;
   flex-direction: column;
-  /* height: 150px; */
-  /* border: 1px solid black; */
 
   .titleName {
     display: flex;
@@ -134,7 +131,6 @@ const LeftDetailTitle = styled.div`
       align-items: center;
       width: 100px;
       height: 30px;
-      /* text-align: center; */
       margin-right: 20px;
       border: 1px solid rgba(0, 0, 0, 0.3);
       border-radius: 5px;
@@ -209,7 +205,6 @@ const TitleFilter = styled.div`
 
 const FilterCalender = styled.div`
   width: 500px;
-  /* height: 48px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -266,6 +261,4 @@ const LeftDetailBodyList = styled.div`
   flex-direction: column;
   margin-top: 30px;
   width: 100%;
-  /* height: 1000vh; */
-  /* background-color: tomato; */
 `;

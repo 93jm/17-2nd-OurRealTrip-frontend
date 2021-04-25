@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from '../../Styles/theme';
 import { config } from '../../config';

@@ -49,51 +49,6 @@ const StayDetailRoomCard = ({ data }) => {
             </DetailCard>
           );
         })}
-      {/* {data.room.map((room, index) => {
-        return (
-          <DetailCard key={index}>
-            <DetailCardLeft>
-              <div className="cardLeftImg">
-                <img src={room.image} alt="RoomPhoto" />
-              </div>
-              <div className="cardLeftInfo">
-                <h2>{room.name}</h2>
-                <div className="cardLeftInfoContent">
-                  <span>
-                    <i className="far fa-user" />
-                    기준 {room.basic_capacity}명 최대 {room.max_capacity}명
-                  </span>
-                  <span>
-                    <i className="fas fa-bed" />
-                    더블 침대 2개
-                  </span>
-                  <span>
-                    <i className="far fa-check-circle" />
-                    최소 예약 : 1박 이상
-                  </span>
-                  <span>
-                    <i className="fas fa-bath" />
-                    전용 화장실, 전용 욕실, 난방, 에어컨, 행거, 테이블
-                  </span>
-                  <div className="cardLeftInfoMore">
-                    <span>객실 정보 더 보기</span>
-                  </div>
-                </div>
-              </div>
-            </DetailCardLeft>
-            <DetailCardRight>
-              <div className="cardRightPrice">
-                <span className="priceInfo">1박 최저</span>
-                <span className="price">
-                  {Number(room.price).toLocaleString()}원
-                </span>
-              </div>
-              <button className="cardRightBtn">선택</button>
-            </DetailCardRight>
-          </DetailCard>
-          
-        );
-      })} */}
     </>
   );
 };
@@ -105,7 +60,6 @@ const DetailCard = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 180px;
-  /* background-color: yellow; */
   border: 1px solid rgb(233, 236, 239);
   box-shadow: rgb(102 109 117 / 32%) 0px 2px 8px;
   padding: 14px;

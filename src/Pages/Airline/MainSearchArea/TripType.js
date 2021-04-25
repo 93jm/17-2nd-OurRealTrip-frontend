@@ -52,7 +52,6 @@ const TripTypeContainer = styled.div`
       span {
         width: 64px;
         margin-left: 10px;
-        /* border-bottom: 2px solid white; */
         font-size: 16px;
         cursor: pointer;
       }

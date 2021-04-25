@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter, useHistory, useLocation } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from '../../../../Styles/theme';
 import StayCalendar from '../Calendar/StayCalendar';
@@ -16,7 +16,6 @@ const SearchContainer = () => {
   const [isUserBoxToggle, setIsUserBoxToggle] = useState(false);
 
   const history = useHistory();
-  // const location = useLocation();
   const handleAdultAdd = () => {
     adult === MAX_ADULT_NUM
       ? alert('최대 정원 9명까지만 가능합니다.')
@@ -126,9 +125,6 @@ const SearchContainer = () => {
             </button>
           </StaySelectUser>
         </div>
-        {/* <Link to="./staylist" onClick={goToList}>
-          검색
-        </Link> */}
         <button className="searchBtn" onClick={goToList}>
           검색
         </button>

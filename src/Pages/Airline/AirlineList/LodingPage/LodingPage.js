@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LodingPageMain from './LodingPageMain';
 import video from './plane.mp4';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 class LodingPage extends Component {
   render() {
@@ -24,7 +24,7 @@ const LoadPage = styled.div`
   max-height: 1080px;
   margin-top: -102px;
   animation: hideSplashScreen 0.4s ease-in-out forwards;
-  animation-delay: 0.1s;
+  animation-delay: 3s;
   transition: all 6s ease-in-out 0.1s;
 
   @keyframes hideSplashScreen {

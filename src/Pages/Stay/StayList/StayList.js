@@ -5,6 +5,7 @@ import StayCardList from './Components/StayCardList';
 import StayPagination from './Components/StayPagination';
 import StayListHeader from './Components/StayListHeader';
 import theme from '../../../Styles/theme';
+import { ACCOMMODATION_API } from '../../../config';
 
 import { houseThemeArr, titleFilterArr } from './Components/StayListFilterData';
 
@@ -77,7 +78,7 @@ const StayList = () => {
 
   const getStayData = () => {
     fetch(
-      `http://18.217.180.2:8000/accommodation${location.state}&order=${titleFilter}&rate=${pointRange}`
+      `${ACCOMMODATION_API}${location.state}&order=${titleFilter}&rate=${pointRange}`
     )
       .then(res => res.json())
       .then(res => {
@@ -87,7 +88,7 @@ const StayList = () => {
 
   useEffect(() => {
     fetch(
-      `http://18.217.180.2:8000/accommodation/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}`
+      `${ACCOMMODATION_API}/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}`
     )
       .then(res => res.json())
       .then(res => {
@@ -97,7 +98,7 @@ const StayList = () => {
 
   useEffect(() => {
     fetch(
-      `http://18.217.180.2:8000/accommodation/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}`
+      `${ACCOMMODATION_API}/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}`
     )
       .then(res => res.json())
       .then(res => {
@@ -107,7 +108,7 @@ const StayList = () => {
 
   useEffect(() => {
     fetch(
-      `http://18.217.180.2:8000/accommodation/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}`
+      `${ACCOMMODATION_API}/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}`
     )
       .then(res => res.json())
       .then(res => {
@@ -117,11 +118,12 @@ const StayList = () => {
 
   const getFilterCheck = selectId => {
     let result = '';
-
+    console.log('전 >> ', checkArr);
     const updatedChecked = checkArr.map(item =>
       item.id === selectId ? { ...item, isChecked: !item.isChecked } : item
     );
     setCheckArr(updatedChecked);
+    console.log('후 >> ', checkArr);
 
     for (let item of updatedChecked) {
       if (item.isChecked) {
@@ -131,7 +133,7 @@ const StayList = () => {
 
     if (result) {
       fetch(
-        `http://18.217.180.2:8000/accommodation/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}${result}`
+        `${ACCOMMODATION_API}/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}${result}`
       )
         .then(res => res.json())
         .then(res => {
@@ -139,7 +141,7 @@ const StayList = () => {
         });
     } else {
       fetch(
-        `http://18.217.180.2:8000/accommodation/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}${result}`
+        `${ACCOMMODATION_API}/category/${theme}${location.state}&order=${titleFilter}&rate=${pointRange}${result}`
       )
         .then(res => res.json())
         .then(res => {
