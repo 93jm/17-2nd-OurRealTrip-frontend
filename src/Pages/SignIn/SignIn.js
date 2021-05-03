@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from '../../Styles/theme';
-import { config } from '../../config';
+import { API_SURVER } from '../../config';
 const SignIn = () => {
   const handleLogin = () => {
     window.Kakao.Auth.login({
       success: authObj => {
-        fetch(`${config.api}/user/sign`, {
+        fetch(`${API_SURVER}/user/sign`, {
           headers: {
             Authorization: authObj.access_token,
           },

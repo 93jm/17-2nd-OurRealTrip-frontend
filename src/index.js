@@ -4,10 +4,10 @@ import Routes from '../src/Routes';
 import { ThemeProvider } from 'styled-components';
 import theme from './Styles/theme';
 import GlobalStyle from './Styles/globalStyles';
-import { config } from './config';
+import { KAKAO_KEY } from './config';
 
 const { Kakao } = window;
-Kakao.init(`${config.kakao}`);
+Kakao.init(`${KAKAO_KEY}`);
 
 ReactDOM.render(
   <React.StrictMode>
